@@ -6,7 +6,7 @@ let clickCount = 0
 let clickTimer = null
 let currentOrder = null
 
-const WA_NUMBER = '0881012955394'
+const WA_NUMBER = '62881012955394'
 const ADMIN_PASS = '1234'
 
 // ─── SIMPAN ─────────────────────────────────────────────
