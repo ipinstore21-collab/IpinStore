@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPIN STORE</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bubbles">
+  <div class="bubble"></div><div class="bubble"></div>
+  <div class="bubble"></div><div class="bubble"></div>
+  <div class="bubble"></div><div class="bubble"></div>
+</div>
+
+<header>
+  <div class="logo-wrap">
+    <div class="logo-ring">
+      <div class="logo-inner" id="logoClick">
+  <img src="logo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+</div>
+    </div>
+    <div>
+      <h1 id="logoTitle">IPIN STORE</h1>
+      <p class="tagline">Jasa Suntik All Sosmed</p>
+    </div>
+  </div>
+  <div id="adminBadge" class="admin-badge" style="display:none">🛡️ ADMIN</div>
+</header>
+
+<!-- ADMIN PANEL -->
+<div id="admin" style="display:none">
+  <div class="admin-panel">
+    <h2 class="section-title">➕ Tambah Layanan</h2>
+    <div class="form-grid">
+      <div class="input-wrap">
+        <label>Kategori</label>
+        <input id="kategori" placeholder="cth: TikTok">
+      </div>
+      <div class="input-wrap">
+        <label>Sub Kategori</label>
+        <input id="sub" placeholder="cth: Followers">
+      </div>
+      <div class="input-wrap">
+        <label>Nama Layanan</label>
+        <input id="nama" placeholder="cth: Followers TikTok 1000">
+      </div>
+      <div class="input-wrap">
+        <label>Harga (angka)</label>
+        <input id="harga" type="number" placeholder="cth: 26000">
+      </div>
+      <div class="input-wrap">
+        <label>Jumlah (untuk hitung biaya)</label>
+        <input id="jumlah" type="number" placeholder="cth: 1000">
+      </div>
+      <div class="input-wrap">
+        <label>Min Order</label>
+        <input id="minOrder" type="number" placeholder="cth: 10">
+      </div>
+      <div class="input-wrap">
+        <label>Max Order</label>
+        <input id="maxOrder" type="number" placeholder="cth: 10000">
+      </div>
+    </div>
+    <button class="btn-add" onclick="tambah()">➕ Tambah Layanan</button>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <span class="search-icon">🔍</span>
+  <input id="search" placeholder="Cari layanan..." onkeyup="tampil()">
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap" id="tabsWrap"></div>
+
+<!-- LIST -->
+<div id="list"></div>
+
+<!-- MODAL ORDER -->
+<div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-icon">🛒</div>
+      <div>
+        <h3 id="modalTitle">Order</h3>
+        <p id="modalSubtitle" class="modal-subtitle"></p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- LINK / TARGET -->
+      <div class="order-field">
+        <label class="order-label">Link / Target</label>
+        <input type="text" id="modalUser" class="order-input" placeholder="Masukkan link atau @username">
+      </div>
+
+      <!-- JUMLAH -->
+      <div class="order-field">
+        <div class="order-label-row">
+          <label class="order-label">Jumlah</label>
+          <div class="minmax-badges">
+            <span class="badge-min" id="badgeMin">Min: 10</span>
+            <span class="badge-max" id="badgeMax">Max: 10.000</span>
+          </div>
+        </div>
+        <input type="number" id="modalQty" class="order-input" placeholder="Masukkan jumlah" oninput="hitungBiaya()">
+      </div>
+
+      <!-- BIAYA -->
+      <div class="order-field">
+        <label class="order-label">Biaya</label>
+        <div class="biaya-box">
+          <span class="biaya-rp">Rp</span>
+          <span id="modalBiaya" class="biaya-val">—</span>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        ⏱️ Proses 1–10 menit · Server padat 1–24 jam &nbsp;·&nbsp; ✅ Bergaransi
+      </div>
+
+      <button class="btn-wa" onclick="sendWA()">
+        💬 Pesan
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/62882006431927" target="_blank">💬</a>
+
+<script src="script.js"></script>
+</body>
+</html>
